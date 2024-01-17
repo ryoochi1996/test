@@ -1,0 +1,1156 @@
+$main: #299EAC;
+$block: #434343;
+
+$sans: 'Noto Sans', sans-serif;
+$zen: 'Zen Kaku Gothic New', sans-serif;
+$cjk: "noto-sans-cjk-jp", sans-serif;
+$jp: 'Noto Sans JP', sans-serif;
+
+//マップ型変数breakpointsを定義
+$breakpoints: (
+//キー値
+  'sp': "(max-width: 767px)", //767px以下（スマホ）用の表示
+//   'tab':"(min-width: 768px) and (max-width: #{$layout-width-inner})",
+  'pc': "(min-width: 768px)"//768px以上（タブレット・PC）用の表示
+
+);
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: sp) {
+  //map-get(マップ型変数, キー)で値を取得
+    @media #{map-get($breakpoints, $breakpoint)} {
+      //この中をカスタムできる
+      @content;
+    }
+}
+
+html {
+    font-size: 10px;
+
+}
+
+@media screen and (min-width:768px) and ( max-width:1200px) {
+    html {
+        font-size:0.833vw;
+    }
+}
+
+@media (max-width: 375px) {
+	html {
+        font-size:2.667vw; 
+    }
+}
+
+
+
+// ===============================
+// 共通
+// ===============================
+.site-footer,.footer_contact {
+    @include mq('sp') {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+
+.page-header-title, h1.page-header-title {
+    font-size: 32px;
+    @include mq('sp') {
+        font-size: 20px;
+    }
+}
+
+
+.container {
+    max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    @include mq('sp') {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.veu_autoEyeCatchBox {
+    display: none;
+}
+
+.site-body-bottom {
+    display: none;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 0;
+    font-family: Poppins, sans-serif;
+    @include mq('sp') {
+        font-size: 40px;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+
+.sub {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 0;
+    @include mq('sp') {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+
+.h3 {
+    margin-top: 10rem;
+    background: 0 0;
+    border-radius: 0;
+    font-size: 4rem;
+    font-weight: bold;
+    @include mq('sp') {
+        margin-left: 16px;
+        margin-right: 16px;
+        font-size: 2.8rem;
+    }
+}
+
+.border-bottom {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #D2D2D2 !important;
+    position: relative;
+    @include mq('sp') {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &::after {
+        content: ".";
+        line-height: 0;
+        display: block;
+        overflow: hidden;
+        position: absolute;
+        bottom: -1px;
+        width: 30%;
+        border-bottom: 1px solid #000;
+    }
+}
+
+
+.page-header-title {
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 1px 3px 4px #808080;
+    color: #fff;
+    @include mq('sp') {
+        font-size: 24px;
+    }
+}
+
+.page-header {
+    padding: 150px 0;
+}
+
+.img {
+    img {
+        width: 100%;
+    }
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    @include mq('sp') {
+        display: block;
+    }
+}
+
+.list-img {
+    width: 33%;
+    img {
+        width: 100%;
+    }
+    @include mq('sp') {
+        width: 100%;
+    }
+}
+
+.text {
+    width: 60%;
+    font-size: 16px;
+    line-height: 1.8;
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+
+// ===============================
+// REFORM MENU_戸建て
+// ===============================
+.page-id-224 .page-header {
+    background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/210421_002.webp) no-repeat center center/cover;
+}
+
+.page-id-224  {
+    
+    .container {
+        @include mq('sp') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    .water__list {
+        @include mq('sp') {
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+    }
+}
+
+.eco {
+    .water__list {
+        @include mq('sp') {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+
+.exterior {
+    padding-top: 150px;
+   
+}
+
+.exterior__sub {
+    margin-right: 8rem;
+    @include mq('sp') {
+        margin-right: 16px;
+        margin-top: 20px;
+        padding-top: 0;
+    }
+}
+
+.exterior__img{
+    margin-top: 5px;
+    img {
+        width: 100%;
+    }
+}
+
+.exterior__list{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    @include mq('sp') {
+        display: block;
+    }
+}
+.exterior__box {
+    margin-left: 10rem;
+    @include mq('sp') {
+        margin-left: 0;
+    }
+
+}
+.exterior__image{
+    width: 55%;
+    flex-shrink: 0;
+    height: 55rem;
+
+    @include mq('sp') {
+        width: auto;
+        height: 22.8rem;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+    img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+
+    }
+}
+
+.exterior__text{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-top: 4rem;
+    margin-right: 8rem;
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 20px;
+        margin-right: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+.water__title{
+    margin-top: 100px;
+    @include mq('sp') {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 20px;
+    }
+}
+.water__image{
+    margin-top: 5px;
+    img {
+        width: 100%;
+    }
+}
+.water__list{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rem;
+    align-items: flex-end;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    @include mq('sp') {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0.4rem;
+    }
+}
+.water__box {
+    margin-right: 10rem;
+    margin-left: 8rem;
+    @include mq('sp') {
+        margin-left: 0;
+        margin-right: 0;
+        order: 2;
+    }
+}
+.water__text{
+    width: 100%;
+    font-size: 1.6rem;
+    margin-top: 4rem;
+    line-height: 1.8;
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 20px;
+        order: 2;
+    }
+}
+.water__img{
+    width: 55%;
+    height: 55rem;
+    flex-shrink: 0;
+    @include mq('sp') {
+        width: 100%;
+        height: auto;
+        order: 1;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.guideline {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.insulation__title{
+    margin-top: 100px;
+}
+
+.insulation__img{
+    margin-top: 20px;
+    img {
+        width: 100%;
+    }
+}
+
+.insulation__list{
+    display: flex;
+    justify-content: space-between;
+    @include mq('sp') {
+        display: block;
+    }
+}
+.insulation__list_img{
+    width: 33%;
+    img {
+        width: 100%;
+    }
+    @include mq('sp') {
+        width: 100%;
+    }
+}
+
+.insulation__text{
+    width: 60%;
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+.ali__img{
+    margin-top: 30px;
+    text-align: center;
+    border: 1px solid #333;
+    padding: 20px;
+    img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+.door__img {
+    margin-top: 30px;
+}
+
+.crime__img {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #333;
+    img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.interior {
+    margin-top: 200px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    background-color: #EEEEEE;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    .title {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    @include mq('sp') {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.interior__inner {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    @include mq('sp') {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+.kitchen__title {
+    margin-top: 50px;
+    @include mq('sp') {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.kitchen__text {
+    margin-top: 30px;
+    font-size: 16px;
+    background-color: #fff;
+    border: 1px solid #A91948;
+    padding: 30px;
+    @include mq('sp') {
+        padding: 15px;
+    }
+}
+
+.kitchen__img {
+    margin-top: 30px;
+}
+
+.kitchen__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    position: relative;
+    @include mq('sp') {
+        margin-top: 20px;
+    }
+    &::after {
+        position: absolute;
+        content: "";
+        width:0;
+        height:0;
+        border-style:solid;
+        border-width: 4rem 0 4rem 3rem;
+        border-color: transparent transparent transparent #333333;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        @include mq('sp') {
+            width:0;
+            height:0;
+            border-style:solid;
+            border-width: 12px 0 12px 8px;
+            border-color: transparent transparent transparent #333333;
+            top: 60%;
+        }
+    }
+}
+
+.kitchen__before__text,.kitchen__after__text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+    @include mq('sp') {
+        font-size: 12px;
+    }
+}
+
+.kitchen__before,.kitchen__after {
+    width: 44%;
+}
+
+.wood__list {
+    display: grid;
+    grid-template-columns	:1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+    @include mq('sp') {
+        gap: 10px;
+
+    }
+
+}
+
+.wood__img {
+    img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+
+    }
+}
+
+.eco__title {
+    margin-top: 50px;
+}
+
+.ev__list {
+    display: grid;
+    grid-template-columns	:1fr 1fr;
+    gap: 0 40px;
+    margin-top: 30px;
+}
+
+.ev__img {
+
+    img {
+        width: 100%;
+    }
+}
+
+.ev__text {
+    margin-top: 30px;
+}
+
+.eco {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-color: #EEEEEE;
+    margin-top: 150px;
+    @include mq('sp') {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .title {
+        @include mq('sp') {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    .sub{
+        @include mq('sp') {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+   
+}
+
+.eco__inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+}
+
+
+
+// ===============================
+// 余白
+// ===============================
+.mt30 {
+    margin-top: 30px;
+}
+
+.mt50 {
+    margin-top: 50px;
+}
+
+.mt100 {
+    margin-top: 100px;
+}
+
+.mt150 {
+    margin-top: 150px;
+}
+
+.mt200 {
+    margin-top: 200px;
+}
+
+
+// ===============================
+// オカムラホームのリフォームとは
+// ===============================
+.page-id-77 .page-header {
+    background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/bk_header_store.jpg) no-repeat center center/cover;
+}
+
+.page-id-77 {
+    .title {
+        @include mq('sp') {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    .sub {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .footer_contact {
+        @include mq('sp') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+   
+}
+
+.about-section__list{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    @include mq('sp') {
+        display: block;
+    }
+    
+}
+.about-section__img{
+    width: 47%;
+    img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+    @include mq('sp') {
+        width: 100%;
+        height: 22.9rem;
+    }
+}
+.about-section__text{
+    width: 47%;
+    line-height: 2;
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 2rem;
+    }
+}
+@media screen and (min-width:768px) and (max-width:1104px) {
+    .about-section__list {
+        display: block;
+    }
+    .about-section__img {
+        width: 100%;
+    }
+    .about-section__text {
+        width: 100%;
+        margin-top: 4rem;
+    }
+}
+
+// ===============================
+// 水回り・内装のリフォーム（戸建て）
+// ===============================
+.page-id-402 {
+    .interior {
+        margin-top: 0;
+        padding-top: 50px;
+    }
+    .page-header {
+        background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/e78598e4dd1d55ad71bf1a53fc0bc746.webp) no-repeat center center/cover;
+        
+    }
+    .site-body {
+        padding-top: 0;
+    }
+    .breadcrumb {
+        background-color: #EEEEEE;
+    }
+    .interior__inner {
+        max-width: 1200px;
+    }
+    .container {
+        @include mq('sp') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    .breadcrumb-list {
+        @include mq('sp') {
+            padding-left: 16px;
+        }
+    }
+}
+
+// ===============================
+// 外装・躯体のリフォーム
+// ===============================
+.page-id-404 {
+    .page-header {
+        background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/def090e51ad5837f4c20bfc16f847d98.webp) no-repeat center center/cover;
+    }
+    .title,.sub {
+        @include mq('sp') {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    .water__list {
+        @include mq('sp') {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    .footer_contact {
+        @include mq('sp') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+// ===============================
+// エクステリアのリフォーム
+// ===============================
+.page-id-406 {
+ .exterior {
+    padding-top: 50px;
+ } 
+ .page-header {
+    background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/200808W-58-1.webp) no-repeat center center/cover;
+
+ }  
+ .title {
+    @include mq('sp') {
+        margin-left: 0;
+        margin-right: 0;
+    }
+ }
+ .sub {
+    @include mq('sp') {
+        margin-left: 0;
+        margin-right: 0;
+    }
+ }
+ .water__list {
+    @include mq('sp') {
+        margin-left: 0;
+        margin-right: 0;
+    }
+ }
+ .footer_contact {
+    @include mq('sp') {
+        padding-left: 0;
+        padding-right: 0;
+    }
+ }
+}
+
+// ===============================
+// エコ・エネルギーのリフォーム
+// ===============================
+.page-id-408 {
+    .eco {
+        padding-top: 50px;
+        margin-top: 0;
+    }
+    .site-body {
+        padding-top: 0;
+    }
+    .breadcrumb {
+        background-color: #EEEEEE;
+    }
+    .page-header {
+        background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/pixta_45575436_M.jpg) no-repeat center center/cover;
+    
+     }  
+    .site-body-container {
+        @include mq('sp') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    .footer_contact {
+        @include mq('sp') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.eco__list{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    @include mq('sp') {
+        display: block;
+    }
+}
+
+// ===============================
+// 事務所・店舗のリフォーム
+// ===============================
+.page-id-95 {
+    .page-header {
+        background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/pixta_91523130_M.jpg) no-repeat center center/cover;
+    }
+    .title,.sub {
+        @include mq('sp') {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    .footer_contact {
+        @include mq('sp') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.store__image{
+    width: 55%;
+    flex-shrink: 0;
+    height: 46rem;
+
+    @include mq('sp') {
+        width: auto;
+        height: auto;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+    img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+
+    }
+}
+
+.store__img{
+    width: 55%;
+    height: 46rem;
+    flex-shrink: 0;
+    @include mq('sp') {
+        width: 100%;
+        height: auto;
+        order: 1;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.store__text{
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-top: 4rem;
+    margin-right: 8rem;
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 20px;
+        margin-right: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+.store__about {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-top: 4rem;
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 20px;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.store__list{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rem;
+    align-items: flex-end;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    
+
+    @include mq('sp') {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 100px;
+
+    }
+}
+
+.store-section {
+    padding-top: 50px;
+}
+
+// ===============================
+// リフォームメニュー　工場
+// ===============================
+.page-id-83 {
+    .page-header {
+        background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/pixta_90548709_M.jpg) no-repeat center center/cover;
+    }
+    .store__img {
+        @include mq('sp') {
+            height: 22.8rem;
+        }
+    }
+    .title,.sub {
+        @include mq('sp') {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    .footer_contact {
+        @include mq('sp') {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.factory {
+    padding-top: 30px;
+}
+
+
+// ===============================
+// 一般住宅
+// ===============================
+
+.house{
+    padding-top: 50px;
+}
+
+.house__list{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+}
+.house__img{
+    width: 40%;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+    @include mq('sp') {
+         width: 100%;
+    }
+
+}
+
+.house__list_text{
+    background-color: #fff;
+    border: 1px solid #A91948;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 73%;
+    margin-left: 3rem;
+    line-height: 2;
+}
+.house__list_head{
+    font-weight: bold;
+    font-size: 2.4rem;
+    color: #A91948;
+    @include mq('sp') {
+        font-size: 2rem;
+    }
+}
+.house__list_about{
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    line-height: 2;
+   
+    &:nth-of-type(n+2) {
+        margin-top: 1.4rem;
+        
+    }
+}
+.house__img_list {
+    display: flex;
+    justify-content: center;
+   img {
+    width: 48%;
+   }
+    @include mq('sp') {
+        display: block;
+        width: 100%;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// @media screen and (min-width:768px) and ( max-width:768px) {
+//     .house__img_list {
+//         display: block;
+//     }
+// }
+
+// @media screen and (min-width:768px) and ( max-width:1140px) {
+//     // 最新のsafari用
+//     .house__img_list {
+//         display: block;
+//         img {
+//             width: 80%;
+//         }
+//     }
+
+// }
+
+.house__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+    @include mq('sp') {
+        display: block;
+        margin-top: 7rem;
+    }
+}
+
+.house___content_img {
+    width: 53%;
+    text-align: center;
+    @include mq('sp') {
+        width: 100%;
+    }
+}
+
+.house__content_text {
+    background-color: #fff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1px solid #A91948;
+    width: 47%;
+    @include mq('sp') {
+        width: 100%;
+        margin-top: 2rem;
+        padding: 2rem;
+    }
+}
+
+.house__title {
+    background-color: #A91948;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 30px;
+    text-align: center;
+    @include mq('sp') {
+        font-size: 1.8rem;
+        padding-right: 1.2rem;
+        padding-left: 1.2rem;
+    }
+}
+
+.house__about {
+    margin-top: 20px;
+    line-height: 2;
+    font-size: 1.8rem;
+    @include mq('sp') {
+        font-size: 1.6rem;
+    }
+}
+
+.wp-image-66 {
+    width: 68%;
+    @include mq('sp') {
+        width: auto;
+    }
+}
+
+.page-id-59 {
+    .page-header {
+        background: url(https://okamurahome.xsrv.jp/admin/wp-content/uploads/2024/01/f5850330a5e673cfcae2bc752e767a8e.webp) no-repeat center center/cover;
+    }
+    .breadcrumb {
+        background-color: #EEEEEE;
+    }
+    .footer_contact {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .title,.sub {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .site-body {
+        background-color: #EEEEEE;
+    }
+}
+
+.w70 {
+    width: 70% !important;
+}
